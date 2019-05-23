@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: x-token-zuul
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8009
+server:
+  port: 8006
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api/admin/**
+      serviceId: X-CLOUD-SERVICE-ADMIN
+    api-b:
+      path: /api/ribbon/**
+      serviceId: X-CLOUD-RIBBON
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
