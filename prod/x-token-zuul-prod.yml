@@ -1,6 +1,6 @@
 spring:
   application:
-    name: x-token-zuul
+    name: x-token-zuul-prod
   zipkin:
     base-url: http://127.0.0.1:9411
   boot:
